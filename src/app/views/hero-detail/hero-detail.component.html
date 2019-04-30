@@ -5,7 +5,7 @@
     </mat-card-title-group>
   </mat-card-header>
   <mat-divider></mat-divider>
-  <mat-card-content fxLayout="row">
+  <mat-card-content fxLayout.xs="column" fxLayout.gt-xs="row">
     <img mat-card-lg-image class="card-line" [src]="hero.avatar">
     <div fxFlex fxLayout="column">
       <p matLine class="card-line" fxFlex fxLayout="row">id: {{hero.id}}</p>
