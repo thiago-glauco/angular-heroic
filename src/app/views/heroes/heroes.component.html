@@ -1,0 +1,10 @@
+
+
+  <mat-list>
+    <mat-list-item mat-button *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+      <p matLine>{{hero.id}} {{hero.name}}</p>
+    </mat-list-item>
+  </mat-list>
+  <app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+
