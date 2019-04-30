@@ -1,0 +1,8 @@
+<mat-grid-list cols="2">
+  <mat-grid-tile *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+    <mat-grid-tile-header>
+      {{hero.name}}
+    </mat-grid-tile-header>
+    <img [src]="hero.avatar" alt="hero avatar" width="150px">
+  </mat-grid-tile>
+</mat-grid-list>

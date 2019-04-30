@@ -1,7 +1,11 @@
 <div class="container">
-  <mat-toolbar>
-    <h1>{{title}}</h1>
+  <mat-toolbar fxLayout="row">
+
+    <h1 fxFlex>{{title}}</h1>
+    <span class="flex-spacer"></span>
+    <a mat-mini-fab color="primary" routerLink="/heroes"><mat-icon>list</mat-icon></a>
+    <a mat-mini-fab color="accent" routerLink="/dashboard"><mat-icon>grid_on</mat-icon></a>
   </mat-toolbar>
-  <app-heroes></app-heroes>
+<router-outlet></router-outlet>
   <app-messages></app-messages>
 </div>

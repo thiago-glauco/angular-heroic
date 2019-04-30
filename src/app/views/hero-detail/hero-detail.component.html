@@ -1,12 +1,25 @@
-<mat-card *ngIf="hero" >
+<mat-card class="card" *ngIf="hero" >
   <mat-card-header >
-    <mat-card-title>{{hero.name | uppercase }} Details</mat-card-title>
+    <mat-card-title-group>
+      <mat-card-title matLine>{{hero.name | uppercase }} Details</mat-card-title>
+    </mat-card-title-group>
   </mat-card-header>
   <mat-divider></mat-divider>
-  <mat-card-content>
-    <p matLine class="card-line">id: {{hero.id}}</p>
-    <mat-form-field>
-      <input type="text" matInput  appearance="fill" [(ngModel)]="hero.name">
-    </mat-form-field>
+  <mat-card-content fxLayout="row">
+    <img mat-card-lg-image class="card-line" [src]="hero.avatar">
+    <div fxFlex fxLayout="column">
+      <p matLine class="card-line" fxFlex fxLayout="row">id: {{hero.id}}</p>
+      <mat-form-field fxFlex fxLayout="row" >
+        <input type="text" matInput  appearance="fill" [(ngModel)]="hero.name">
+      </mat-form-field>
+      <mat-form-field fxFlex fxLayout="row" >
+        <input type="text" matInput  appearance="fill" [(ngModel)]="hero.avatar">
+      </mat-form-field>
+    </div>
   </mat-card-content>
+  
+  <mat-divider></mat-divider>
+  <mat-card-actions>
+    <button mat-raised-button (click)="goBack()"><mat-icon>chevron_left</mat-icon>back</button>
+  </mat-card-actions>
 </mat-card>

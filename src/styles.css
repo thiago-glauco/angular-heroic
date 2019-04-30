@@ -12,6 +12,10 @@ h2, h3 {
   font-weight: lighter;
 }
 
+.flex-spacer {
+  flex: 1 1 auto;
+}
+
 body, input[type="text"], button {
   font-family: Cambria, Georgia;
 }
@@ -25,8 +29,8 @@ mat-list-item {
 }
 
 mat-list {
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
 }
 
 mat-list-item:hover {
@@ -34,22 +38,23 @@ mat-list-item:hover {
 }
 
 mat-card {
-  padding: 10px;
+  padding: 5px;
 }
 .card-line{
-  padding: 10px;
+  padding: 5px;
 }
+
 .card {
-  background-color: antiquewhite;
+  background-color: whitesmoke;
   width: 80%;
-  margin: auto;
+  margin: 10px auto;
 }
 .container {
-  min-width: 310px;
+  min-width: 300px;
   width: 50%;
   max-width:90%;
   margin: auto auto auto auto;
-  padding: 10px;
+  padding: 5px;
 }
 .selected {
   background-color: lightskyblue;
