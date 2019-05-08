@@ -27,10 +27,18 @@ import { MessageService } from './services/message.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+
+//firebase modules
 import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import {AngularFireDatabaseModule} from '@angular/fire/database';
+import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
+
 
 const environment = {
-  
+  production: false,
   firebase: {
   apiKey: "AIzaSyC7ZEHQQ6Y6WK4eHqjLTi_SXkx0F2Adiw4",
   authDomain: "thiagoglaucoheroiceditor.firebaseapp.com",
@@ -57,10 +65,14 @@ const environment = {
     MatIconModule,
     MatButtonModule,
     MatGridListModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule
   ],
-  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent ],
+  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent ],
   bootstrap:    [ AppComponent ],
   providers: [HeroesService, MessageService]
 })
