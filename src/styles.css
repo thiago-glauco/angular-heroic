@@ -37,9 +37,7 @@ mat-list-item:hover {
   background-color: lightgrey;
 }
 
-mat-card {
-  padding: 5px;
-}
+
 .card-line{
   padding: 5px;
 }
