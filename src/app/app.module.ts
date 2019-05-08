@@ -27,6 +27,19 @@ import { MessageService } from './services/message.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { AngularFireModule } from '@angular/fire';
+
+const environment = {
+  
+  firebase: {
+  apiKey: "AIzaSyC7ZEHQQ6Y6WK4eHqjLTi_SXkx0F2Adiw4",
+  authDomain: "thiagoglaucoheroiceditor.firebaseapp.com",
+  databaseURL: "https://thiagoglaucoheroiceditor.firebaseio.com",
+  projectId: "thiagoglaucoheroiceditor",
+  storageBucket: "thiagoglaucoheroiceditor.appspot.com",
+  messagingSenderId: "618516520272",
+  appId: "1:618516520272:web:c79f06df08dc50d5"}
+};
 
 @NgModule({
   imports:      [
@@ -44,6 +57,7 @@ import { DashboardComponent } from './views/dashboard/dashboard.component';
     MatIconModule,
     MatButtonModule,
     MatGridListModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule
   ],
   declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent ],
