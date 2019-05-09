@@ -29,7 +29,7 @@ export class HeroDetailComponent implements OnInit {
     this.heroesService.getHero( id )
       .subscribe( ( hero ) => {
         console.log(hero);
-        this.hero = hero[0;
+        this.hero = hero[0];
       })
   }
 
