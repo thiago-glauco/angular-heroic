@@ -13,5 +13,4 @@ export const routes: Routes = [
   { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   { path: 'detail/:id', component: HeroDetailComponent, canActivate: [AuthGuard] },
-  
 ]
