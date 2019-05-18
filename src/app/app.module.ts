@@ -36,7 +36,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
-import { AuthService } from './services/auth.service';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 const environment = {
   production: false,
@@ -75,6 +76,11 @@ const environment = {
   ],
   declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [HeroesService, MessageService, AuthService]
+  providers: [
+    AuthGuard,
+    HeroesService,
+    MessageService,
+    AuthService
+  ]
 })
 export class AppModule { }
