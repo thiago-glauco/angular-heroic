@@ -27,7 +27,7 @@ import { MessageService } from './services/message.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { HomeComponent } from '.views/home/home.component';
+import { HomeComponent } from './views/home/home.component';
 
 //firebase modules
 import { AngularFireModule } from '@angular/fire';
@@ -36,7 +36,7 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
-import { AuthServiceService } from './services/auth-service.service';
+import { AuthService } from './services/auth.service';
 
 const environment = {
   production: false,
@@ -75,6 +75,6 @@ const environment = {
   ],
   declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [HeroesService, MessageService, AuthServiceService]
+  providers: [HeroesService, MessageService, AuthService]
 })
 export class AppModule { }
