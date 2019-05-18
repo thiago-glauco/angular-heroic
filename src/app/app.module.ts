@@ -35,6 +35,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
+import { AuthServiceService } from './services/auth-service.service';
+import { HomeComponent } from './home/home.component';
 
 
 const environment = {
@@ -72,8 +74,8 @@ const environment = {
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule
   ],
-  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent ],
+  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent, HomeComponent ],
   bootstrap:    [ AppComponent ],
-  providers: [HeroesService, MessageService]
+  providers: [HeroesService, MessageService, AuthServiceService]
 })
 export class AppModule { }
