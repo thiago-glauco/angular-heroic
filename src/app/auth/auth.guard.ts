@@ -14,11 +14,11 @@ export class AuthGuard implements CanActivate {
   canActivate(): Observable<boolean> {
     return this.authService.user.pipe(
       map( user => {
-        if (user && user.updateEmail){
+        if (user && user.uid){
           return true;
         } else {
           this.router.navigate([`/home`]);
-          return false;
+          return false
         }
       })
     )
