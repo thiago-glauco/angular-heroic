@@ -27,6 +27,7 @@ import { MessageService } from './services/message.service';
 
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
+import { HomeComponent } from '.views/home/home.component';
 
 //firebase modules
 import { AngularFireModule } from '@angular/fire';
@@ -36,8 +37,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
 import { AuthServiceService } from './services/auth-service.service';
-import { HomeComponent } from './home/home.component';
-
 
 const environment = {
   production: false,
