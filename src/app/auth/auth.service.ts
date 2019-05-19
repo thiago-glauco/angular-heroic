@@ -15,7 +15,9 @@ export class AuthService {
 
   login(){
     this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider())
-      .then( () => this.router.navigate([`/dashboard`]))
+      .then( () => {
+        console.log("loguedin")
+        this.router.navigate([`/dashboard`])})
       .catch( error => console.log('authError => ', error))
   }
 
