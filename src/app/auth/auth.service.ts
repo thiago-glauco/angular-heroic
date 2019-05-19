@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-  user :Observable<firebase.User>
+  user:Observable<firebase.User>
   userId;
   userEmail;
 
@@ -19,7 +19,8 @@ export class AuthService {
 
   login(){
     this.afAuth.auth.signInWithPopup( new auth.GoogleAuthProvider())
-      .then( (result) => { console.dir("success => " + JSON.stringify(result) )} )
+      .then( (result) => { this.userId = result.user.uid;
+        console.dir("success => " + JSON.stringify(result.user) )} )
       .catch( (error) => { console.dir("error => " + error)})
   }
 
