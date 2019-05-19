@@ -14,17 +14,13 @@ export class AuthService {
 
   constructor( private router: Router, private afAuth: AngularFireAuth ) {
     this.user = afAuth.authState;
-    this.user.pipe(
-      map( (user) => { this.userEmail = user.email})
-    )
     console.log("user is", this.user);
   }
 
   login(){
-    this.afAuth.auth.signInWithPopup( new auth.GoogleAuthProvider());
-    this.user.pipe(
-      map( (user) => { this.userEmail = user.email})
-    )
+    this.afAuth.auth.signInWithPopup( new auth.GoogleAuthProvider())
+      .then( (result) => { console.dir("success => " + result)} )
+      .catch( (error) => { console.dir("error => " + error)})
   }
 
   logout() {
