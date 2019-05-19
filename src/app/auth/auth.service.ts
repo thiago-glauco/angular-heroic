@@ -19,7 +19,7 @@ export class AuthService {
 
   login(){
     this.afAuth.auth.signInWithPopup( new auth.GoogleAuthProvider())
-      .then( (result) => { console.dir("success => " + result)} )
+      .then( (result) => { console.dir("success => " + JSON.stringify(result) )} )
       .catch( (error) => { console.dir("error => " + error)})
   }
 
