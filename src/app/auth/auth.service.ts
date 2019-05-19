@@ -25,9 +25,7 @@ export class AuthService {
   }
 
   logout() {
-    this.user.pipe(
-      map( (user) => { console.log("good bye " + user.email)})
-    )
+    this.userId = "";
     this.afAuth.auth.signOut();
     this.router.navigate([`/home`]);
   }

@@ -14,17 +14,11 @@ export class AuthGuard implements CanActivate {
     this.user = afAuth.user.subscribe( user => console.dir(this.user));
   }
   canActivate(): Observable<boolean> | boolean {
-    /*return this.authService.user.pipe(
-      map( user => {
-        if (user.uid){
-          console.log("user is true");
-          return true;
-        } else {
-          this.router.navigate(['/home']);
-          return false
-        }
-      })
-    );*/
- return true;
+    if( this.authService.userId ){
+      return true
+    }
+    else {
+      return false
+    }
   }
 }
