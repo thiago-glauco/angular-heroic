@@ -11,13 +11,15 @@ import { auth } from 'firebase/app';
 export class AuthGuard implements CanActivate {
   user;
   constructor(private authService: AuthService, private router: Router,  private afAuth: AngularFireAuth ) {
-    this.user = afAuth.user.subscribe( user => console.dir(this.user));
+    
   }
   canActivate(): Observable<boolean> | boolean {
     if( this.authService.userId ){
+      console.log(this.authService.userId)
       return true
     }
     else {
+      console.log(this.authService.userId)
       return false
     }
   }
