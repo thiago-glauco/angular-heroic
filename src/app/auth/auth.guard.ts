@@ -13,13 +13,13 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router,  private afAuth: AngularFireAuth ) {
     
   }
-  canActivate(): Observable<boolean> | boolean {
-    if( this.authService.userId !== "" ){
-      console.log(this.authService.userId)
+  canActivate(): boolean {
+    if( this.authService.userId ){
+      console.log("authguard is true: " + this.authService.userId)
       return true
     }
     else {
-      console.log(this.authService.userId)
+      console.log("authguard is false: " + this.authService.userId)
       return false
     }
   }
