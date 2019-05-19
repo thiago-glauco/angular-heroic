@@ -14,7 +14,7 @@ export class AuthGuard implements CanActivate {
     
   }
   canActivate(): Observable<boolean> | boolean {
-    if( this.authService.userId ){
+    if( this.authService.userId !== "" ){
       console.log(this.authService.userId)
       return true
     }
