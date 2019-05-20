@@ -14,13 +14,15 @@ export class AuthGuard implements CanActivate {
     
   }
   canActivate(): boolean {
-    if( this.authService.userId ){
+    
+    /*if( this.authService.userId ){
       console.log("authguard is true: " + this.authService.userId)
       return true
     }
     else {
       console.log("authguard is false: " + this.authService.userId)
       return false
-    }
+    }*/
+    return true;
   }
 }

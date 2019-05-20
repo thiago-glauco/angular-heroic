@@ -28,6 +28,7 @@ import { MessageService } from './services/message.service';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
 import { HomeComponent } from './views/home/home.component';
+import { FileUploadTestComponent } from './views/file-upload-test/file-upload-test.component';
 
 //firebase modules
 import { AngularFireModule } from '@angular/fire';
@@ -38,6 +39,7 @@ import {AngularFireDatabaseModule} from '@angular/fire/database';
 import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
+
 
 const environment = {
   production: false,
@@ -74,7 +76,7 @@ const environment = {
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule
   ],
-  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent, HomeComponent ],
+  declarations: [ AppComponent, HelloComponent, HeroesComponent, HeroDetailComponent, MessagesComponent, DashboardComponent, FirebaseTestComponent, HomeComponent, FileUploadTestComponent ],
   bootstrap:    [ AppComponent ],
   providers: [
     AuthGuard,
