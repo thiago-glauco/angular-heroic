@@ -13,6 +13,7 @@ import { HeroesService } from '../../services/heroes.service';
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
   heroData;
+  editMode: boolean;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -22,7 +23,19 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit() {
     const id = +this.activatedRoute.snapshot.paramMap.get('id');
     console.log ('the id is ' + id);
-    this.getHero( id )
+    if( id !== 0 ) {
+      this.getHero( id )
+      this.editMode = true;
+    }
+    else {
+     this.hero ={
+      id: 0,
+      name: "New Hero",
+      avatar: "",
+      comments: "",
+     }
+     this.editMode = false;
+    }
   }
 
   getHero(id): void {
@@ -32,7 +45,8 @@ export class HeroDetailComponent implements OnInit {
         console.log(hero);
         this.heroData = hero[0];
         this.hero = {
-          id: hero[0].key,
+          key: hero[0].key,
+          id: hero[0].payload.val().id,
           name: hero[0].payload.val().name,
           avatar: hero[0].payload.val().avatar,
           comments: hero[0].payload.val().comments,
@@ -45,6 +59,10 @@ export class HeroDetailComponent implements OnInit {
   }
   save( ) {
     console.log("trying to save");
-    this.heroesService.updateHero(this.hero.id, this.hero.name, this.hero.avatar, this.hero.comments);
+    this.heroesService.updateHero(this.hero.key, Number(this.hero.id), this.hero.name, this.hero.avatar, this.hero.comments);
+  }
+
+  add(){
+    this.heroesService.addHero(Number(this.hero.id), this.hero.name, this.hero.avatar, this.hero.comments)
   }
 }

@@ -34,18 +34,34 @@ export class HeroesService {
 
   getHero( heroId: number ): Observable<any> {
     this.messageService.add(`HeroService: fetched hero id=${heroId}`);
+    //return this.heroesListRef.query.equalTo(heroId);
     return this.db.list('/heroes', ref => ref.orderByChild('id').equalTo(heroId)).snapshotChanges();
   }
 
-  updateHero( heroId: number, name: string, avatar: string, comments: string ) {
+  updateHero( key: string, heroId: number, name: string, avatar: string, comments: string ) {
     console.log("trying to update" + heroId +  " " + name);
     this.heroesListRef.update(
-      heroId.toString(), {
-      id: heroId,
+      key, {
       name: name,
+      id: heroId,
       avatar: avatar,
       comments: comments
     });
   }
+
+  getLastHero(){
+    let lastHero = this.db.list('/heroes', ref => ref.orderByKey().limitToLast(1)).snapshotChanges();
+    return lastHero
+  }
+
+  addHero( id: number, name: string, avatar: string, comments: string) {
+    console.log("trying to add" +  " " + name);
+    this.heroesListRef.push({
+      id: id,
+      name: name,
+      avatar: avatar,
+      comments: comments })
+  }
+  
 
 }

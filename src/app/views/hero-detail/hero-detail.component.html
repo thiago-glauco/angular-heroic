@@ -1,6 +1,7 @@
 {{(hero | json)}}
 {{(heroData | json)}}
-
+{{(hero.key)}}
+{{(heroData.key)}}
 <mat-card class="card" *ngIf="hero" >
   <mat-card-header >
     <mat-card-title-group>
@@ -11,7 +12,10 @@
   <mat-card-content fxLayout.xs="column" fxLayout.gt-xs="row wrap">
     <img mat-card-lg-image class="card-line" [src]="hero.avatar">
     <div fxFlex fxLayout="column">
-      <p matLine class="card-line" fxFlex fxLayout="row">id: {{hero.id}}</p>
+      <mat-form-field fxFlex  fxLayout="row">
+        <mat-label>Id:</mat-label>
+        <input type="text" matInput  appearance="fill" [(ngModel)]="hero.id">
+      </mat-form-field>
       <mat-form-field fxFlex  fxLayout="row">
         <mat-label>Name</mat-label>
         <input type="text" matInput  appearance="fill" [(ngModel)]="hero.name">
@@ -32,7 +36,8 @@
   <mat-divider></mat-divider>
   <mat-card-actions fxLayout="row" fxLayoutAlign="left center">
     <button mat-raised-button (click)="goBack()"><mat-icon>chevron_left</mat-icon>back</button>
-    <button mat-raised-button (click)="save()" color="primary"><mat-icon>check_circle</mat-icon>Save</button>
+    <button *ngIf="editMode" mat-raised-button (click)="save()" color="primary"><mat-icon>check_circle</mat-icon>Save</button>
+    <button *ngIf="!editMode" mat-raised-button (click)="add()" color="primary"><mat-icon>check_circle</mat-icon>Save</button>
     <button mat-raised-button (click)="cancel()" color="accent"><mat-icon>cancel</mat-icon>Cancel</button>
     <button mat-raised-button fxFlexAlign="end" (click)="erase()" color="warn"><mat-icon>delete</mat-icon>Remove</button>
   </mat-card-actions>
