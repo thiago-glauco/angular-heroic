@@ -1,8 +1,10 @@
 {{(hero | json)}}
+{{(heroData | json)}}
+
 <mat-card class="card" *ngIf="hero" >
   <mat-card-header >
     <mat-card-title-group>
-      <mat-card-title matLine>{{hero.name | uppercase }} Details</mat-card-title>
+      <mat-card-title matLine>{{ hero.name | uppercase }} Details</mat-card-title>
     </mat-card-title-group>
   </mat-card-header>
   <mat-divider></mat-divider>

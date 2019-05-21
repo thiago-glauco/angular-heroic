@@ -12,6 +12,7 @@ import { HeroesService } from '../../services/heroes.service';
 
 export class HeroDetailComponent implements OnInit {
   hero: Hero;
+  heroData;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -29,8 +30,14 @@ export class HeroDetailComponent implements OnInit {
     this.heroesService.getHero( id )
       .subscribe( ( hero ) => {
         console.log(hero);
-        this.hero = hero[0];
-      })
+        this.heroData = hero[0];
+        this.hero = {
+          id: hero[0].key,
+          name: hero[0].payload.val().name,
+          avatar: hero[0].payload.val().avatar,
+          comments: hero[0].payload.val().comments,
+        }
+      });
   }
 
   goBack( ) {
