@@ -9,7 +9,7 @@
   <mat-card-actions>
 
       <button *ngIf="!(authService.user | async)?.uid" 
-      mat-raised-button color="primary" (click)="authService.login()"><mat-icon>account_circle</mat-icon>  Login</button>
+      mat-raised-button color="primary" (click)="enter()"><mat-icon>account_circle</mat-icon>  Login</button>
   
       <button mat-raised-button (click)="authService.logout()"><mat-icon>exit_to_app</mat-icon>  Logout</button>
   </mat-card-actions>
