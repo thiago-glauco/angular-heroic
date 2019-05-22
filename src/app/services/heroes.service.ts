@@ -62,6 +62,10 @@ export class HeroesService {
       avatar: avatar,
       comments: comments })
   }
+
+  removeHero( key: string ) {
+    this.heroesListRef.remove(key);
+  }
   
 
 }

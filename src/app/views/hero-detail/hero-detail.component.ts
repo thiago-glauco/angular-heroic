@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { Hero } from '../../classes/hero';
 import { HeroesService } from '../../services/heroes.service';
@@ -18,6 +18,7 @@ export class HeroDetailComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private location: Location,
+    private route: Router,
     private heroesService: HeroesService ) { }
 
   ngOnInit() {
@@ -64,5 +65,10 @@ export class HeroDetailComponent implements OnInit {
 
   add(){
     this.heroesService.addHero(Number(this.hero.id), this.hero.name, this.hero.avatar, this.hero.comments)
+  }
+
+  erase( ) {
+    this.heroesService.removeHero( this.hero.key );
+    this.location.back();
   }
 }
