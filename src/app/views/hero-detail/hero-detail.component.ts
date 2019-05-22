@@ -71,4 +71,7 @@ export class HeroDetailComponent implements OnInit {
     this.heroesService.removeHero( this.hero.key );
     this.location.back();
   }
+  cancel( ) {
+    this.location.back();
+  }
 }
