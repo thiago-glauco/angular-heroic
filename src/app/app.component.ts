@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MessagingService } from "./services/messaging.service";
 import { Router } from '@angular/router';
 
 
@@ -7,12 +8,25 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent  {
+export class AppComponent implements OnInit  {
   title = 'Tour of Heros';
-  constructor( private router: Router ) {
+  message;
+  constructor( 
+    private router: Router,
+    private messagingService: MessagingService
+    ) {
 
   }
+
   goToHeroes( ) {
     this.router.navigate(['/heroes']);
   }
+
+  ngOnInit() {
+    const userId = 'user001';
+    this.messagingService.requestPermission(userId);
+    this.messagingService.receiveMessage();
+    this.message = this.messagingService.currentMessage;
+  }
+
 }
