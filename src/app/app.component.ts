@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { MessagingService } from "./services/messaging.service";
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -8,15 +7,16 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: [ './app.component.css' ]
 })
-export class AppComponent  {
+export class AppComponent {
   title = 'Tour of Heros';
   message;
   constructor( 
-    private router: Router,
-    private messagingService: MessagingService
+    private router: Router
     ) {
 
   }
+
+
 
   goToHeroes( ) {
     this.router.navigate(['/heroes']);

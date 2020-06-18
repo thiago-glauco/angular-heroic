@@ -40,7 +40,6 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
 import { FirebaseTestComponent } from './views/firebase-test/firebase-test.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
-import { MessagingService } from './services/messaging.service';
 
 
 const environment = {
@@ -86,7 +85,6 @@ const environment = {
     HeroesService,
     MessageService,
     AuthService,
-    MessagingService
   ]
 })
 export class AppModule { }
